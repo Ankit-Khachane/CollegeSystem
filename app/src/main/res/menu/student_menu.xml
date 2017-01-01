@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".admin.Studentpoll">
+    <item android:id="@+id/studprof"
+        android:title="@string/title_activity_student"/>
+    <item android:id="@+id/Logout"
+        android:title="Logout" />
+    <item android:id="@+id/About"
+        android:title="About" />
+<!--    <item android:id="@+id/refreshstud"
+        android:title="Refresh"
+        android:orderInCategory="100"
+        android:icon="@drawable/refresh"
+        app:showAsAction="always"
+        />-->
+</menu>

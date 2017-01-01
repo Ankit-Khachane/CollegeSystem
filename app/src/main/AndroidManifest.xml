@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="main.collegesystem">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:name="main.collegesystem.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="main.collegesystem.permission.C2D_MESSAGE" />
+
+    <application
+        android:name=".initializer"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="pmR0WTHAIAskfpLwTpYWfJ2P2NELHPiwTcuFidv5" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="nR8dSJ8vrZPk8GpffTOgUSb4HDcUfaJvqG3sTb5n" />
+
+        <activity
+            android:name=".Login"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Register"
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Splash"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.parse.push.gcm_sender_id"
+            android:value="id:943715809680" />
+        <service android:name="com.parse.PushService" />
+        <receiver android:name="com.parse.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="main.collegesystem" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.parse.ParsePushBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+                <action android:name="com.parse.push.intent.DELETE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".admin.Admin"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff"
+            android:label="@string/title_activity_staff"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".student.Student"
+            android:label="@string/title_activity_student"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+       <!-- <service android:name="com.parse.PushService" />
+
+        <receiver
+            android:name=".Receiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                &lt;!&ndash; IMPORTANT: Change "com.parse.starter" to match your app's package name. &ndash;&gt;
+                <category android:name="main.collegesystem" />
+            </intent-filter>
+        </receiver>-->
+
+        <activity android:name=".testone" />
+        <activity
+            android:name=".admin.attendance"
+            android:label="@string/title_activity_attendance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Manualwork"
+            android:label="@string/title_activity_manualwork"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Schedule"
+            android:label="@string/title_activity_schedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Notice"
+            android:label="@string/title_activity_notice"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Staffpoll"
+            android:label="@string/title_activity_staffpoll"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Studentpoll"
+            android:label="@string/title_activity_studentpoll"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.atndnsdetail"
+            android:label="@string/title_activity_atndnsdetail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.AddNew"
+            android:label="@string/title_activity_add_new"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Attendance"
+            android:label="@string/title_activity_staff__attendance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Manual"
+            android:label="@string/title_activity_staff__manual"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Schedule"
+            android:label="@string/title_activity_staff_schedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Notice"
+            android:label="@string/title_activity_staff__notice"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Admin_poll"
+            android:label="@string/title_activity_staff_admin_poll"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".student.Stud_Attendance"
+            android:label="@string/title_activity_stud__attendance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".student.Stud_Manual"
+            android:label="@string/title_activity_stud__manual"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".student.Stud_Schedule"
+            android:label="@string/title_activity_stud__schedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".student.Stud_Admin_Poll"
+            android:label="@string/title_activity_stud__admin__poll"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".student.Stud_Notice"
+            android:label="@string/title_activity_stud__notice"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".manualStatus"
+            android:label="@string/title_activity_manual_status"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Notice_List"
+            android:label="@string/title_activity_staffnoticelist"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Notice_Detail"
+            android:label="@string/title_activity_staff__notice__detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Admin_stud_detail"
+            android:label="@string/title_activity_admin_stud_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Admin_staff_detail"
+            android:label="@string/title_activity_admin_staff_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Admin_Notice_List"
+            android:label="@string/title_activity_admin_stud_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".admin.Admin_Notice_Detail"
+            android:label="@string/title_activity_admin_stud_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ForgetPass"
+            android:label="@string/title_activity_forget_pass"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".staff.Staff_Defaulter"
+            android:label="@string/title_activity_staff__defaulter"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>

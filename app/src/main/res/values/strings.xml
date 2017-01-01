@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">College System</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register</string>
+
+    <string name="title_activity_splash">Splash</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="parse_application_id">pmR0WTHAIAskfpLwTpYWfJ2P2NELHPiwTcuFidv5</string>
+    <string name="parse_client_key">nR8dSJ8vrZPk8GpffTOgUSb4HDcUfaJvqG3sTb5n</string>
+    <string name="title_activity_admin">Administrator</string>
+    <string name="title_activity_staff">Staff</string>
+    <string name="title_activity_student">Student</string>
+    <string name="title_activity_attendance">Attendance</string>
+    <string name="title_activity_manualwork">Manual Work</string>
+    <string name="title_activity_schedule">Schedule</string>
+    <string name="title_activity_notice">Notice</string>
+    <string name="title_activity_staffpoll">Staff Poll</string>
+    <string name="title_activity_studentpoll">Student Poll</string>
+    <string name="title_activity_about">About</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_profile_admin">ProfileAdmin</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_atndnsdetail">Detail</string>
+    <string name="title_activity_add_new">Add New</string>
+    <string name="title_activity_staff__attendance">Attendance</string>
+    <string name="title_activity_staff__manual">Manual</string>
+    <string name="title_activity_staff_schedule">Schedule</string>
+    <string name="title_activity_staff__notice">Notice</string>
+    <string name="title_activity_staff_admin_poll">Admin Poll</string>
+    <string name="title_activity_stud__attendance">Attendance</string>
+    <string name="title_activity_stud__manual">Manual</string>
+    <string name="title_activity_stud__schedule">Schedule</string>
+    <string name="title_activity_stud__admin__poll">Admin Poll</string>
+    <string name="title_activity_stud__notice">Notice</string>
+    <string name="title_activity_manual_status">Status</string>
+    <string name="title_activity_staffnoticelist">Notice List</string>
+    <string name="title_activity_staff__notice__detail">Notice Detail</string>
+    <string name="title_activity_stud_attendance_detail">Attendance Detail</string>
+    <string name="title_activity_admin_stud_detail">Subject</string>
+    <string name="title_activity_admin_staff_detail">Staff Attendance</string>
+    <string name="title_activity_forget_pass">Forgot Password</string>
+    <string name="title_activity_staff__defaulter">Defaulter</string>
+</resources>

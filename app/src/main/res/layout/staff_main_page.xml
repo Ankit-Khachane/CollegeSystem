@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="main.collegesystem.staff.Staff"
+    tools:showIn="@layout/staff_activity"
+    android:background="@color/background_material_dark">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView3" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton12"
+                android:src="@drawable/attendance"
+                android:background="#ebebeb"
+                android:onClick="gotoStaffAttendance" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attendance"
+                android:id="@+id/textView12"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:background="#465787"
+                android:onClick="gotoStaffAttendance" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton13"
+                android:src="@drawable/manual"
+                android:background="#ebebeb"
+                android:onClick="gotoStaffManual" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manual Work"
+                android:id="@+id/textView13"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:background="#465787"
+                android:onClick="gotoStaffManual" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton14"
+                android:src="@drawable/schedule"
+                android:background="#ebebeb"
+                android:onClick="gotoStaffSchedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Schedule"
+                android:id="@+id/textView14"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:background="#465787"
+                android:onClick="gotoStaffSchedule" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton15"
+                android:src="@drawable/notice"
+                android:layout_alignTop="@+id/scrollView"
+                android:layout_toRightOf="@+id/scrollView"
+                android:layout_toEndOf="@+id/scrollView"
+                android:background="#ebebeb"
+                android:onClick="gotoStaffNotice" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notice"
+                android:id="@+id/textView15"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:background="#465787"
+                android:onClick="gotoStaffNotice" />
+
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>
