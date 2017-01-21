@@ -1,143 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="main.collegesystem.Profile"
-    tools:showIn="@layout/profile"
-    android:background="#85a7ce">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="#85a7ce"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="main.collegesystem.Profile"
+                tools:showIn="@layout/profile">
 
 
     <TextView
+        android:id="@+id/Usertype"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/Usertype"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:background="#eec0c0"
         android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
-        android:textStyle="normal|bold"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textStyle="normal|bold"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Name :"
         android:id="@+id/nm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/Usertype"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="40dp"
+        android:text="Name :"
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Email :"
         android:id="@+id/mail"
-        android:layout_below="@+id/nm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/namevalue"
-        android:layout_alignTop="@+id/nm"
-        android:layout_toRightOf="@+id/nm"
-        android:layout_toEndOf="@+id/nm"
-        android:textAlignment="center" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/mailvalue"
-        android:layout_alignTop="@+id/mail"
-        android:layout_toRightOf="@+id/mail"
-        android:layout_toEndOf="@+id/mail"
-        android:textAlignment="center"
-        android:autoLink="email" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Phone :"
-        android:id="@+id/textView30"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/mailvalue"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/phntv2"
-        android:textAlignment="center"
-        android:layout_alignTop="@+id/textView30"
-        android:layout_alignRight="@+id/namevalue"
-        android:layout_alignEnd="@+id/namevalue"
-        android:layout_toRightOf="@+id/textView30"
-        android:layout_toEndOf="@+id/textView30"
-        android:autoLink="phone" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Branch :"
-        android:id="@+id/textView32"
+        android:layout_below="@+id/nm"
         android:layout_marginTop="25dp"
-        android:layout_below="@+id/phntv2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="Email :"
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     <TextView
+        android:id="@+id/namevalue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/brnchtv2"
+        android:layout_alignTop="@+id/nm"
+        android:layout_toEndOf="@+id/nm"
+        android:layout_toRightOf="@+id/nm"
         android:textAlignment="center"
-        android:layout_alignTop="@+id/textView32"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/adretv2"
-        android:layout_alignStart="@+id/adretv2" />
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView
+        android:id="@+id/mailvalue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/mail"
+        android:layout_toEndOf="@+id/mail"
+        android:layout_toRightOf="@+id/mail"
+        android:autoLink="email"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Address :"
-        android:id="@+id/textView33"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/brnchtv2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/mailvalue"
+        android:layout_marginTop="15dp"
+        android:text="Phone :"
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     <TextView
+        android:id="@+id/phntv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/adretv2"
+        android:layout_alignEnd="@+id/namevalue"
+        android:layout_alignRight="@+id/namevalue"
+        android:layout_alignTop="@+id/textView30"
+        android:layout_toEndOf="@+id/textView30"
+        android:layout_toRightOf="@+id/textView30"
+        android:autoLink="phone"
         android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/phntv2"
+        android:layout_marginTop="25dp"
+        android:text="Branch :"
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    <TextView
+        android:id="@+id/brnchtv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/adretv2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/adretv2"
+        android:layout_alignTop="@+id/textView32"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/brnchtv2"
+        android:layout_marginTop="29dp"
+        android:text="Address :"
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    <TextView
+        android:id="@+id/adretv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView33"
-        android:layout_toRightOf="@+id/textView33"
         android:layout_toEndOf="@+id/textView33"
-        android:lines="4" />
+        android:layout_toRightOf="@+id/textView33"
+        android:lines="4"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 </RelativeLayout>

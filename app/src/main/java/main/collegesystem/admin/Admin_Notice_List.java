@@ -31,47 +31,46 @@ import main.collegesystem.About;
 import main.collegesystem.Login;
 import main.collegesystem.Profile;
 import main.collegesystem.R;
-import main.collegesystem.staff.Staff_Notice_Detail;
 
 public class Admin_Notice_List extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    public static String nm,mail,utype,phon,brnch,addr;
+    public static String nm, mail, utype, phon, brnch, addr;
     ListView noticels;
     ArrayAdapter<String> noticeadapter;
-    ArrayList<String> notislist=new ArrayList<String>();
+    ArrayList<String> notislist = new ArrayList<String>();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.staffnoticelist);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        noticels=(ListView)findViewById(R.id.noticelist);
-        noticeadapter=new ArrayAdapter<String>(this, R.layout.staffnoticelist_con, R.id.noticerowone,notislist);
+        noticels = (ListView) findViewById(R.id.noticelist);
+        noticeadapter = new ArrayAdapter<String>(this, R.layout.staffnoticelist_con, R.id.noticerowone, notislist);
         noticels.setAdapter(noticeadapter);
         noticels.setOnItemClickListener(this);
-        ParseQuery<ParseObject> pnoticelist=ParseQuery.getQuery("Notice");
+        ParseQuery<ParseObject> pnoticelist = ParseQuery.getQuery("Notice");
         pnoticelist.orderByDescending("createdAt");
         pnoticelist.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> list, ParseException e) {
-                if(e==null){
-                    Log.i("Notice Title ","Fetched Done");
-                    for(int i=0;i<list.size();i++){
-                        ParseObject u=list.get(i);
-                        String tmp=u.get("Title").toString();
+                if (e == null) {
+                    Log.i("Notice Title ", "Fetched Done");
+                    for (int i = 0; i < list.size(); i++) {
+                        ParseObject u = list.get(i);
+                        String tmp = u.get("Title").toString();
                         noticeadapter.add(tmp);
                     }
-                }
-                else {
-                    Log.i("Notice Titile ","Fetched Failed");
+                } else {
+                    Log.i("Notice Titile ", "Fetched Failed");
                 }
             }
         });
     }
+
     public void unsetChannel() {
-        List<String> las= ParseInstallation.getCurrentInstallation().getList("channels");
-        if(las==null) {
+        List<String> las = ParseInstallation.getCurrentInstallation().getList("channels");
+        if (las == null) {
             Log.i("Channels :", "Not Cleared !");
-        }
-        else {
+        } else {
             ParseInstallation.getCurrentInstallation().removeAll("channels", las);
             ParseInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
                 @Override
@@ -81,44 +80,46 @@ public class Admin_Notice_List extends AppCompatActivity implements AdapterView.
             });
         }
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.admin_menu, menu);//Menu Resource, Menu
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.adminprof:
-                SharedPreferences pref=this.getSharedPreferences("Login_state", MODE_PRIVATE);
-                String sessionToken=pref.getString("sessionToken", "");
+                SharedPreferences pref = this.getSharedPreferences("Login_state", MODE_PRIVATE);
+                String sessionToken = pref.getString("sessionToken", "");
                 try {
                     ParseUser.become(sessionToken);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                ParseUser user=ParseUser.getCurrentUser();
-                if(user!=null) {
+                ParseUser user = ParseUser.getCurrentUser();
+                if (user != null) {
                     nm = user.getUsername();
                     mail = user.getEmail();
-                    utype=user.get("Type").toString();
-                    phon=user.get("PhoneNo").toString();
-                    brnch=user.get("Branch").toString();
-                    addr=user.get("Address").toString();
+                    utype = user.get("Type").toString();
+                    phon = user.get("PhoneNo").toString();
+                    brnch = user.get("Branch").toString();
+                    addr = user.get("Address").toString();
                     Intent i = new Intent(getApplicationContext(), Profile.class);
-                    Bundle detail=new Bundle();
-                    detail.putString("uname",nm);
+                    Bundle detail = new Bundle();
+                    detail.putString("uname", nm);
                     detail.putString("mail", mail);
-                    detail.putString("utype",utype);
-                    detail.putString("phone",phon);
-                    detail.putString("branch",brnch);
-                    detail.putString("address",addr);
+                    detail.putString("utype", utype);
+                    detail.putString("phone", phon);
+                    detail.putString("branch", brnch);
+                    detail.putString("address", addr);
 
                     i.putExtras(detail);
                     startActivity(i);
 //                    Toast.makeText(Admin.this, "Email :"+mail, Toast.LENGTH_SHORT).show();
                     Log.i("Current User :--", "user :" + nm);
-                }else {
+                } else {
                     Log.i("Current User :--", "user null");
                     Toast.makeText(getApplicationContext(), "Profile isn't initialized", Toast.LENGTH_SHORT).show();
                 }
@@ -145,17 +146,18 @@ public class Admin_Notice_List extends AppCompatActivity implements AdapterView.
                 }
                 return true;
             case R.id.About:
-                Intent t=new Intent(this, About.class);
+                Intent t = new Intent(this, About.class);
                 startActivity(t);
-                Toast.makeText(getApplicationContext(),"About Selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "About Selected", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
     public void onItemClick(final AdapterView<?> parent, View view, int position, long id) {
-        final String selectednotice=parent.getItemAtPosition(position).toString();
-        ParseQuery<ParseObject> pdetail=ParseQuery.getQuery("Notice");
+        final String selectednotice = parent.getItemAtPosition(position).toString();
+        ParseQuery<ParseObject> pdetail = ParseQuery.getQuery("Notice");
         pdetail.whereEqualTo("Title", selectednotice);
         pdetail.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override

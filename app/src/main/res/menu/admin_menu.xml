@@ -1,8 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/adminprof"
+    <item
+        android:id="@+id/adminprof"
         android:title="@string/title_activity_admin"/>
-    <item android:id="@+id/Logout"
-        android:title="Logout" />
-    <item android:id="@+id/About"
-        android:title="About" />
+    <item
+        android:id="@+id/Logout"
+        android:title="Logout"/>
+    <item
+        android:id="@+id/About"
+        android:title="About"/>
 </menu>

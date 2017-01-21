@@ -2,7 +2,6 @@ package main.collegesystem;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,23 +24,21 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-import java.net.InetAddress;
-
 import main.collegesystem.admin.Admin;
 import main.collegesystem.staff.Staff;
 import main.collegesystem.student.Student;
 
 public class Login extends AppCompatActivity{
 
+    public static boolean userlogedin = false;
+    public ParseObject userob;
+    public AlertDialog.Builder ex;
     EditText nm, pass;
     String nmv, passv,log_typ;
-    public ParseObject userob;
-    public static boolean userlogedin=false;
     Button log_btn,goreg;
     ParseUser loged_user;
     boolean val;
     TextView forgetpass;
-    public AlertDialog.Builder ex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +46,7 @@ public class Login extends AppCompatActivity{
         setContentView(R.layout.login_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //initialize edittext,TextViewn Buttons for Login Activity
         forgetpass=(TextView)findViewById(R.id.textView18);
         forgetpass.setPaintFlags(forgetpass.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
         log_btn=(Button)findViewById(R.id.loginbutton);

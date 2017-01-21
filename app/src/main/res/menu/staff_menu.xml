@@ -1,18 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".admin.Staffpoll">
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".admin.Staffpoll">
 
-<item android:id="@+id/staffprof"
-    android:title="@string/title_activity_staff"/>
-<item android:id="@+id/Logout"
-    android:title="Logout" />
-<item android:id="@+id/About"
-    android:title="About" />
-<!--<item android:id="@+id/refreshstaff"
-        android:title="Refresh"
-        android:orderInCategory="100"
-        android:icon="@drawable/refresh"
-        app:showAsAction="always"
-        />-->
+    <item
+        android:id="@+id/staffprof"
+        android:title="@string/title_activity_staff"/>
+    <item
+        android:id="@+id/Logout"
+        android:title="Logout"/>
+    <item
+        android:id="@+id/About"
+        android:title="About"/>
+    <!--<item android:id="@+id/refreshstaff"
+            android:title="Refresh"
+            android:orderInCategory="100"
+            android:icon="@drawable/refresh"
+            app:showAsAction="always"
+            />-->
 </menu>

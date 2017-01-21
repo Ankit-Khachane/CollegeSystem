@@ -28,23 +28,25 @@ public class ForgetPass extends AppCompatActivity {
         setContentView(R.layout.forget_pass_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        rstmail=(EditText)findViewById(R.id.mailreset);
-        submail=(Button)findViewById(R.id.sub_btn);
+        rstmail = (EditText) findViewById(R.id.mailreset);
+        submail = (Button) findViewById(R.id.sub_btn);
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.about, menu);//Menu Resource, Menu
         return true;
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.about:
-                Intent t=new Intent(this, About.class);
+                Intent t = new Intent(this, About.class);
                 startActivity(t);
                 Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.Exit:
-                AlertDialog.Builder exit=new AlertDialog.Builder(this);
+                AlertDialog.Builder exit = new AlertDialog.Builder(this);
                 exit.setMessage("Do You Want to Exit ?");
                 exit.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -71,11 +73,11 @@ public class ForgetPass extends AppCompatActivity {
         }
     }
 
-    public void doForgetpswd(View v){
-        final String resetmail=rstmail.getText().toString();
-        if((resetmail.matches(""))) {
+    public void doForgetpswd(View v) {
+        final String resetmail = rstmail.getText().toString();
+        if ((resetmail.matches(""))) {
             Toast.makeText(ForgetPass.this, "Please Enter Email Id", Toast.LENGTH_SHORT).show();
-        }else if(resetmail!=null){
+        } else if (resetmail != null) {
             ParseUser.requestPasswordResetInBackground(resetmail, new RequestPasswordResetCallback() {
                 public void done(ParseException e) {
                     if (e == null) {

@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="main.collegesystem.admin.attendance"
-    tools:showIn="@layout/admin_attendance_activity"
-    android:background="@color/background_material_dark">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_material_dark"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="main.collegesystem.admin.attendance"
+                tools:showIn="@layout/admin_attendance_activity">
 
     <ScrollView
+        android:id="@+id/scrollView5"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView5">
+        android:layout_height="fill_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
-            android:dividerPadding="2dp"
             android:divider="#0a3659"
+            android:dividerPadding="2dp"
+            android:orientation="vertical"
             android:padding="10dp">
 
             <ImageButton
+                android:id="@+id/imageButton25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageButton25"
-                android:src="@drawable/staff"
                 android:background="#b0c9e4"
-                android:onClick="attndsstud" />
+                android:onClick="attndsstud"
+                android:src="@drawable/staff"/>
 
             <TextView
+                android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="STUDENT"
-                android:id="@+id/textView19"
-                android:textAlignment="center"
-                android:textSize="30dp"
-                android:textColor="#fefefe"
-                android:textStyle="bold"
-                android:typeface="sans"
-                android:background="#747474"
                 android:layout_marginBottom="10dp"
-                android:onClick="attndsstud" />
+                android:background="#747474"
+                android:onClick="attndsstud"
+                android:text="STUDENT"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fefefe"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:typeface="sans"/>
 
         </LinearLayout>
     </ScrollView>

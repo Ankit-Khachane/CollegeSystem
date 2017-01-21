@@ -27,26 +27,26 @@ import main.collegesystem.About;
 import main.collegesystem.Login;
 import main.collegesystem.Profile;
 import main.collegesystem.R;
-import main.collegesystem.staff.Staff_Notice_List;
 
 public class Notice extends AppCompatActivity {
-    public static String nm,mail,utype;
-    EditText titl,content;
-    CheckBox staff,stud;
-    boolean staff_flag,stud_flag;
-    String titlev,contentv;
+    public static String nm, mail, utype;
+    EditText titl, content;
+    CheckBox staff, stud;
+    boolean staff_flag, stud_flag;
+    String titlev, contentv;
     Button uplnot;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_notice);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        titl=(EditText)findViewById(R.id.notice_title);
-        content=(EditText)findViewById(R.id.notice_content);
-        uplnot=(Button)findViewById(R.id.upl_notice);
-        staff=(CheckBox)findViewById(R.id.chk_staff);
-        stud=(CheckBox)findViewById(R.id.chk_stud);
+        titl = (EditText) findViewById(R.id.notice_title);
+        content = (EditText) findViewById(R.id.notice_content);
+        uplnot = (Button) findViewById(R.id.upl_notice);
+        staff = (CheckBox) findViewById(R.id.chk_staff);
+        stud = (CheckBox) findViewById(R.id.chk_stud);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,32 +54,33 @@ public class Notice extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.admin_menu, menu);//Menu Resource, Menu
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.adminprof:
-                SharedPreferences pref=this.getSharedPreferences("Login_state", MODE_PRIVATE);
-                String sessionToken=pref.getString("sessionToken", "");
+                SharedPreferences pref = this.getSharedPreferences("Login_state", MODE_PRIVATE);
+                String sessionToken = pref.getString("sessionToken", "");
                 try {
                     ParseUser.become(sessionToken);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
                 ParseUser user = ParseUser.getCurrentUser();
-                if(user!=null) {
+                if (user != null) {
                     nm = user.getUsername();
                     mail = user.getEmail();
-                    utype=user.get("Type").toString();
+                    utype = user.get("Type").toString();
                     Intent i = new Intent(Notice.this, Profile.class);
-                    Bundle detail=new Bundle();
-                    detail.putString("uname",nm);
+                    Bundle detail = new Bundle();
+                    detail.putString("uname", nm);
                     detail.putString("mail", mail);
-                    detail.putString("utype",utype);
+                    detail.putString("utype", utype);
                     i.putExtras(detail);
                     startActivity(i);
 //                    Toast.makeText(Admin.this, "Email :"+mail, Toast.LENGTH_SHORT).show();
                     Log.i("Current User :--", "user :" + nm);
-                }else {
+                } else {
                     Log.i("Current User :--", "user null");
                     Toast.makeText(Notice.this, "Profile isn't initialized", Toast.LENGTH_SHORT).show();
                 }
@@ -105,43 +106,37 @@ public class Notice extends AppCompatActivity {
                 }
                 return true;
             case R.id.About:
-                Intent t=new Intent(this, About.class);
+                Intent t = new Intent(this, About.class);
                 startActivity(t);
-                Toast.makeText(getApplicationContext(),"About Selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "About Selected", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-    public void selectStaff(View v){
-        if(staff.isChecked()) {
-            staff_flag = true;
-        }
-        else {
-            staff_flag=false;
-        }
+
+    public void selectStaff(View v) {
+        staff_flag = staff.isChecked();
     }
+
     public void selectStud(View v) {
-        if (stud.isChecked()) {
-            stud_flag = true;
-        }else {
-            stud_flag=false;
-        }
+        stud_flag = stud.isChecked();
     }
-    public void uplnotic(View v){
-        titlev=titl.getText().toString();
-        contentv=content.getText().toString();
-        ParseObject notice=new ParseObject("Notice");
-        notice.put("Title",titlev);
+
+    public void uplnotic(View v) {
+        titlev = titl.getText().toString();
+        contentv = content.getText().toString();
+        ParseObject notice = new ParseObject("Notice");
+        notice.put("Title", titlev);
         notice.put("Content", contentv);
-        notice.put("From",ParseUser.getCurrentUser().getUsername());
+        notice.put("From", ParseUser.getCurrentUser().getUsername());
         notice.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
                     //TODO :send push to selcted user staff / stud
                     ParsePush pushnotice = new ParsePush();
-                    long weekInterval = 60*60*24*7;
+                    long weekInterval = 60 * 60 * 24 * 7;
                     if (staff_flag) {
                         //if staff is checked
                         pushnotice.setChannel("Staff");
@@ -177,8 +172,9 @@ public class Notice extends AppCompatActivity {
         });
         //Toast.makeText(this,"Uploaded Notice",Toast.LENGTH_SHORT).show();
     }
-    public void gotoNoticlist(View view){
-        Intent i=new Intent(getApplicationContext(), Admin_Notice_List.class);
+
+    public void gotoNoticlist(View view) {
+        Intent i = new Intent(getApplicationContext(), Admin_Notice_List.class);
         startActivity(i);
     }
 }

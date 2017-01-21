@@ -1,13 +1,9 @@
 package main.collegesystem.staff;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ListPopupWindow;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -21,7 +17,7 @@ import main.collegesystem.R;
 
 public class Staff_Defaulter extends AppCompatActivity {
     int total;
-    ArrayList<String> prelist=new ArrayList<String>();
+    ArrayList<String> prelist = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +25,7 @@ public class Staff_Defaulter extends AppCompatActivity {
         setContentView(R.layout.staff_defaulter_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ParseQuery<ParseObject> users=ParseQuery.getQuery("Attendance");
+        ParseQuery<ParseObject> users = ParseQuery.getQuery("Attendance");
         users.orderByAscending("RollNo");
         users.findInBackground(new FindCallback<ParseObject>() {
             @Override

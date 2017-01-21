@@ -29,7 +29,6 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import main.collegesystem.About;
@@ -38,23 +37,24 @@ import main.collegesystem.Profile;
 import main.collegesystem.R;
 
 public class Stud_Attendance extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    public static String nm,mail,utype,phon,brnch,addr;
+    public static String nm, mail, utype, phon, brnch, addr;
     ListView studlist;
     List<String> studlistv;
     ArrayAdapter<String> adapter;
-    String selectedsub,selecteduser,present,offsub;
+    String selectedsub, selecteduser, present, offsub;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stud_attendance_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
        /* Intent i=getIntent();
         selecteduser=i.getStringExtra("name");*/
-        selecteduser=ParseUser.getCurrentUser().getUsername();
-        studlistv=new ArrayList<>();
-        studlist=(ListView)findViewById(R.id.studatndsublist);
-        adapter=new ArrayAdapter<String>(this, R.layout.stud_attendance_con, R.id.subitemclick,studlistv);
+        selecteduser = ParseUser.getCurrentUser().getUsername();
+        studlistv = new ArrayList<>();
+        studlist = (ListView) findViewById(R.id.studatndsublist);
+        adapter = new ArrayAdapter<String>(this, R.layout.stud_attendance_con, R.id.subitemclick, studlistv);
         studlist.setAdapter(adapter);
         ParseQuery<ParseObject> studuser = ParseQuery.getQuery("Subjects");
         studuser.findInBackground(new FindCallback<ParseObject>() {
@@ -75,58 +75,61 @@ public class Stud_Attendance extends AppCompatActivity implements AdapterView.On
         });
         studlist.setOnItemClickListener(this);
     }
+
     public void unsetChannel() {
-        List<String> las=ParseInstallation.getCurrentInstallation().getList("channels");
-        if(las==null) {
-            Log.i("Channels :","Not Cleared !");
-        }
-        else {
+        List<String> las = ParseInstallation.getCurrentInstallation().getList("channels");
+        if (las == null) {
+            Log.i("Channels :", "Not Cleared !");
+        } else {
             ParseInstallation.getCurrentInstallation().removeAll("channels", las);
             ParseInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
                     Log.i("Channels :", "Cleared !");
-                }});
+                }
+            });
         }
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.student_menu, menu);//Menu Resource, Menu
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.studprof:
-                SharedPreferences pref=this.getSharedPreferences("Login_state", MODE_PRIVATE);
-                String sessionToken=pref.getString("sessionToken", "");
+                SharedPreferences pref = this.getSharedPreferences("Login_state", MODE_PRIVATE);
+                String sessionToken = pref.getString("sessionToken", "");
                 try {
                     ParseUser.become(sessionToken);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                ParseUser user=ParseUser.getCurrentUser();
-                if(user!=null) {
+                ParseUser user = ParseUser.getCurrentUser();
+                if (user != null) {
                     nm = user.getUsername();
                     mail = user.getEmail();
-                    utype=user.get("Type").toString();
-                    phon=user.get("PhoneNo").toString();
-                    brnch=user.get("Branch").toString();
-                    addr=user.get("Address").toString();
+                    utype = user.get("Type").toString();
+                    phon = user.get("PhoneNo").toString();
+                    brnch = user.get("Branch").toString();
+                    addr = user.get("Address").toString();
                     Intent i = new Intent(getApplicationContext(), Profile.class);
-                    Bundle detail=new Bundle();
-                    detail.putString("uname",nm);
+                    Bundle detail = new Bundle();
+                    detail.putString("uname", nm);
                     detail.putString("mail", mail);
-                    detail.putString("utype",utype);
-                    detail.putString("phone",phon);
-                    detail.putString("branch",brnch);
-                    detail.putString("address",addr);
+                    detail.putString("utype", utype);
+                    detail.putString("phone", phon);
+                    detail.putString("branch", brnch);
+                    detail.putString("address", addr);
 
                     i.putExtras(detail);
                     startActivity(i);
 //                    Toast.makeText(Admin.this, "Email :"+mail, Toast.LENGTH_SHORT).show();
                     Log.i("Current User :--", "user :" + nm);
-                }else {
+                } else {
                     Log.i("Current User :--", "user null");
                     Toast.makeText(getApplicationContext(), "Profile isn't initialized", Toast.LENGTH_SHORT).show();
                 }
@@ -153,35 +156,37 @@ public class Stud_Attendance extends AppCompatActivity implements AdapterView.On
                 }
                 return true;
             case R.id.About:
-                Intent t=new Intent(this, About.class);
+                Intent t = new Intent(this, About.class);
                 startActivity(t);
-                Toast.makeText(getApplicationContext(),"About Selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "About Selected", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public void onItemClick(final AdapterView<?> parent, View view, int position, long id) {
-        selectedsub=parent.getItemAtPosition(position).toString();
-        showattendance(selectedsub,selecteduser);
-        Toast.makeText(this, "Selected : "+selectedsub, Toast.LENGTH_SHORT).show();
+        selectedsub = parent.getItemAtPosition(position).toString();
+        showattendance(selectedsub, selecteduser);
+        Toast.makeText(this, "Selected : " + selectedsub, Toast.LENGTH_SHORT).show();
     }
-    public void showattendance( final String subject,final String user) {
+
+    public void showattendance(final String subject, final String user) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.staffschedclick, null);
 
-        final TextView timev=(TextView)dialogView.findViewById(R.id.timevalx);
-        final TextView schedtv=(TextView)dialogView.findViewById(R.id.scheditemx);
+        final TextView timev = (TextView) dialogView.findViewById(R.id.timevalx);
+        final TextView schedtv = (TextView) dialogView.findViewById(R.id.scheditemx);
 
-        TextView tv1=(TextView)dialogView.findViewById(R.id.textv);
-        TextView tv2=(TextView)dialogView.findViewById(R.id.textv1);
+        TextView tv1 = (TextView) dialogView.findViewById(R.id.textv);
+        TextView tv2 = (TextView) dialogView.findViewById(R.id.textv1);
 
         tv1.setText("Present :");
         tv2.setText("Out Of :");
 
-        ParseQuery<ParseObject> p=ParseQuery.getQuery("Attendance");
+        ParseQuery<ParseObject> p = ParseQuery.getQuery("Attendance");
         p.whereEqualTo("student", user);
         p.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override
@@ -195,7 +200,7 @@ public class Stud_Attendance extends AppCompatActivity implements AdapterView.On
                 }
             }
         });
-        ParseQuery<ParseObject> p1=ParseQuery.getQuery("Subjects");
+        ParseQuery<ParseObject> p1 = ParseQuery.getQuery("Subjects");
         p1.whereEqualTo("Subject", subject);
         p1.getFirstInBackground(new GetCallback<ParseObject>() {
             @Override

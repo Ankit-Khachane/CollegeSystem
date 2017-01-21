@@ -1,80 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="main.collegesystem.staff.Staff_Notice"
-    tools:showIn="@layout/staff_notice_activity"
-    android:background="@color/background_material_dark">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_material_dark"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="main.collegesystem.staff.Staff_Notice"
+                tools:showIn="@layout/staff_notice_activity">
 
     <ScrollView
+        android:id="@+id/scrollView7"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView7">
+        android:layout_height="fill_parent">
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_height="fill_parent">
 
             <Button
+                android:id="@+id/uplbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Upload Notice"
-                android:id="@+id/uplbtn"
-                android:background="@drawable/custom_button"
-                android:textSize="30dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_below="@+id/cont"
                 android:layout_marginTop="40dp"
+                android:background="@drawable/custom_button"
                 android:onClick="uplnotic"
-                android:layout_below="@+id/cont" />
+                android:text="Upload Notice"
+                android:textSize="30dp"/>
 
             <EditText
+                android:id="@+id/titl"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:id="@+id/titl"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:hint="  Notice Title"
-                android:background="@android:color/background_light"
-                android:layout_marginBottom="15dp"
-                android:inputType="textCapWords"
                 android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="false"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignWithParentIfMissing="false"
-                android:layout_marginTop="10dp" />
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/background_light"
+                android:hint="  Notice Title"
+                android:inputType="textCapWords"/>
 
             <EditText
+                android:id="@+id/cont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/cont"
-                android:lines="10"
-                android:hint="  Notice Content"
-                android:background="@android:color/background_light"
-                android:layout_below="@+id/titl"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:gravity="top" />
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/titl"
+                android:background="@android:color/background_light"
+                android:gravity="top"
+                android:hint="  Notice Content"
+                android:lines="10"/>
 
             <Button
+                android:id="@+id/ntclist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notice List"
-                android:id="@+id/ntclist"
-                android:background="@drawable/custom_button"
-                android:textSize="30dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_below="@+id/cont"
                 android:layout_marginTop="120dp"
+                android:background="@drawable/custom_button"
                 android:onClick="gotoNoticeList"
-                android:layout_below="@+id/cont" />
+                android:text="Notice List"
+                android:textSize="30dp"/>
 
         </RelativeLayout>
     </ScrollView>

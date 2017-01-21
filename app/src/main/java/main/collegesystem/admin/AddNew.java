@@ -18,46 +18,50 @@ import com.parse.SignUpCallback;
 
 import main.collegesystem.R;
 
-public class AddNew extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class AddNew extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner usertype;
-    EditText user,fname,lname,branch,phone,email;
-    String usertypev,fnamev,lnamev,branchv,phonev,emailv;
+    EditText user, fname, lname, branch, phone, email;
+    String usertypev, fnamev, lnamev, branchv, phonev, emailv;
     Button addnewbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_new_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        addnewbtn=(Button)findViewById(R.id.buttonaddnew);
-        fname=(EditText)findViewById(R.id.fname);
-        lname=(EditText)findViewById(R.id.lname);
-        branch=(EditText)findViewById(R.id.Branch);
-        phone=(EditText)findViewById(R.id.phone);
-        email=(EditText)findViewById(R.id.Email);
-        usertype=(Spinner)findViewById(R.id.addnewusertype);
-        String types[]={"Student","Staff"};
-        ArrayAdapter<String> adapter =new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,types);
+        addnewbtn = (Button) findViewById(R.id.buttonaddnew);
+        fname = (EditText) findViewById(R.id.fname);
+        lname = (EditText) findViewById(R.id.lname);
+        branch = (EditText) findViewById(R.id.Branch);
+        phone = (EditText) findViewById(R.id.phone);
+        email = (EditText) findViewById(R.id.Email);
+        usertype = (Spinner) findViewById(R.id.addnewusertype);
+        String types[] = {"Student", "Staff"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, types);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         usertype.setAdapter(adapter);
         usertype.setOnItemSelectedListener(this);
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String tmp=parent.getItemAtPosition(position).toString();
-        usertypev=tmp;
+        String tmp = parent.getItemAtPosition(position).toString();
+        usertypev = tmp;
     }
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-    public void addUser(View v){
-        fnamev=fname.getText().toString();
-        lnamev=lname.getText().toString();
-        branchv=branch.getText().toString();
-        phonev=phone.getText().toString();
-        emailv=email.getText().toString();
-        ParseUser usr=new ParseUser();
+
+    public void addUser(View v) {
+        fnamev = fname.getText().toString();
+        lnamev = lname.getText().toString();
+        branchv = branch.getText().toString();
+        phonev = phone.getText().toString();
+        emailv = email.getText().toString();
+        ParseUser usr = new ParseUser();
         usr.setUsername(fnamev);
         usr.setEmail(emailv);
         usr.setPassword("123456");
@@ -70,8 +74,8 @@ public class AddNew extends AppCompatActivity implements AdapterView.OnItemSelec
                 if (e == null) {
                     Toast.makeText(AddNew.this, "User Added", Toast.LENGTH_SHORT).show();
                 } else {
-                    Log.i("New User Add :",e.getMessage());
-                    Toast.makeText(AddNew.this, "Error User@new :"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.i("New User Add :", e.getMessage());
+                    Toast.makeText(AddNew.this, "Error User@new :" + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -85,6 +89,6 @@ public class AddNew extends AppCompatActivity implements AdapterView.OnItemSelec
                 }
             }
         });*/
-                Toast.makeText(AddNew.this, "Added User", Toast.LENGTH_SHORT).show();
+        Toast.makeText(AddNew.this, "Added User", Toast.LENGTH_SHORT).show();
     }
 }

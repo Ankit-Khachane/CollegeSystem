@@ -1,93 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="main.collegesystem.Register"
-    tools:showIn="@layout/register_activity"
-    android:background="@color/background_material_dark">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_material_dark"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="main.collegesystem.Register"
+                tools:showIn="@layout/register_activity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2"
-        android:layout_marginTop="69dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="69dp"
+        android:orientation="vertical">
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:inputType="textPersonName"
-            android:ems="10"
             android:id="@+id/reg_name"
-            android:layout_marginTop="8dp"
-            android:hint="  Name"
-            android:background="@drawable/rounded_edittext" />
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:id="@+id/reg_email"
-            android:layout_marginTop="8dp"
-            android:hint="  Email"
-            android:background="@drawable/rounded_edittext" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/reg_pass"
-            android:layout_marginTop="8dp"
-            android:hint=" Password"
-            android:background="@drawable/rounded_edittext" />
-
-        <Spinner
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:id="@+id/reg_spin"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edittext"
-            android:spinnerMode="dropdown" />
+            android:ems="10"
+            android:hint="  Name"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/reg_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="  Email"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/reg_pass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint=" Password"
+            android:inputType="textPassword"/>
+
+        <Spinner
+            android:id="@+id/reg_spin"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext"
+            android:spinnerMode="dropdown"/>
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/Reg_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/Reg_btn"
-        android:background="@drawable/custom_button"
-        android:layout_marginTop="35dp"
-        android:textSize="30dp"
-        android:onClick="doRegister"
-        android:layout_below="@+id/linearLayout2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/custom_button"
+        android:onClick="doRegister"
+        android:text="Register"
+        android:textSize="30dp"/>
 
     <TextView
+        android:id="@+id/careiii"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Register With Valid Detail"
-        android:id="@+id/careiii"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:text="Register With Valid Detail"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff"
-        android:textStyle="normal|bold"
         android:textIsSelectable="false"
         android:textSize="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="normal|bold"/>
 
 </RelativeLayout>

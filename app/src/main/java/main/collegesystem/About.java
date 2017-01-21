@@ -19,7 +19,7 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.about_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ex=new AlertDialog.Builder(this).setTitle("Exit ?").setMessage("Do You Want To Exit").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        ex = new AlertDialog.Builder(this).setTitle("Exit ?").setMessage("Do You Want To Exit").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
@@ -33,20 +33,20 @@ public class About extends AppCompatActivity {
 
     }
 
-    public void aboutankit(View v){
+    public void aboutankit(View v) {
         Toast.makeText(About.this, "Devoloper Ankit Khachane", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.about,menu);
+        getMenuInflater().inflate(R.menu.about, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.Exit:
                 ex.show();
                 return true;

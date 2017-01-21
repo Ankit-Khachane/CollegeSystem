@@ -26,25 +26,26 @@ public class Splash extends Activity {
                 try {
                     // Thread will sleep for 5 seconds
                     sleep(1000);
-                        // After 5 seconds redirect to another intent
-                    String type=pref.getString("type", null);
-                    boolean firstlogin=pref.getBoolean("firstlogin",true);
-                    if((type==(null)) && (firstlogin)) {
-                        Intent i=new Intent(getBaseContext(),Login.class);
+                    // After 5 seconds redirect to another intent
+                    String type = pref.getString("type", null);
+                    boolean firstlogin = pref.getBoolean("firstlogin", true);
+                    if ((type == (null)) && (firstlogin)) {
+                        Intent i = new Intent(getBaseContext(), Login.class);
                         startActivity(i);
                         finish();
                     }
-                    if(type!=null){
-                        if(type.equals("Admin")) {
-                        Intent i = new Intent(getBaseContext(), Admin.class);
-                        startActivity(i);
-                        finish();
-                    }if(type.equals("Staff")){
-                        Intent i = new Intent(getBaseContext(), Staff.class);
-                        startActivity(i);
-                        finish();
-                    }
-                    if(type.equals("Student")) {
+                    if (type != null) {
+                        if (type.equals("Admin")) {
+                            Intent i = new Intent(getBaseContext(), Admin.class);
+                            startActivity(i);
+                            finish();
+                        }
+                        if (type.equals("Staff")) {
+                            Intent i = new Intent(getBaseContext(), Staff.class);
+                            startActivity(i);
+                            finish();
+                        }
+                        if (type.equals("Student")) {
                             Intent i = new Intent(getBaseContext(), Student.class);
                             startActivity(i);
                             finish();
@@ -57,7 +58,7 @@ public class Splash extends Activity {
                     }
                     //Remove activity
                 } catch (Exception e) {
-                    Log.e("Error Login : ","login error");
+                    Log.e("Error Login : ", "login error");
                 }
             }
         };

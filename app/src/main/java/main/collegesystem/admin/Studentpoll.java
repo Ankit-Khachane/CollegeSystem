@@ -28,25 +28,24 @@ import main.collegesystem.About;
 import main.collegesystem.Login;
 import main.collegesystem.Profile;
 import main.collegesystem.R;
-import main.collegesystem.student.Stud_Attendance;
-import main.collegesystem.student.Student;
 
-public class Studentpoll extends AppCompatActivity implements AdapterView.OnItemClickListener{
-    public static String nm,mail,utype;
+public class Studentpoll extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    public static String nm, mail, utype;
     ListView studlist;
     List<String> studlistv;
     ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_studpoll_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        studlistv=new ArrayList<>();
-        studlist=(ListView)findViewById(R.id.stud_poll_list);
-        adapter=new ArrayAdapter<String>(this, R.layout.admin_studentpoll_con, R.id.stud_poll_lister,studlistv);
+        studlistv = new ArrayList<>();
+        studlist = (ListView) findViewById(R.id.stud_poll_list);
+        adapter = new ArrayAdapter<String>(this, R.layout.admin_studentpoll_con, R.id.stud_poll_lister, studlistv);
         studlist.setAdapter(adapter);
-        ParseQuery<ParseObject> p=ParseQuery.getQuery("Attendance");
+        ParseQuery<ParseObject> p = ParseQuery.getQuery("Attendance");
         p.orderByAscending("RollNo");
         p.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -65,37 +64,39 @@ public class Studentpoll extends AppCompatActivity implements AdapterView.OnItem
         });
         studlist.setOnItemClickListener(this);
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.admin_menu, menu);//Menu Resource, Menu
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.adminprof:
-                SharedPreferences pref=this.getSharedPreferences("Login_state", MODE_PRIVATE);
-                String sessionToken=pref.getString("sessionToken", "");
+                SharedPreferences pref = this.getSharedPreferences("Login_state", MODE_PRIVATE);
+                String sessionToken = pref.getString("sessionToken", "");
                 try {
                     ParseUser.become(sessionToken);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
                 ParseUser user = ParseUser.getCurrentUser();
-                if(user!=null) {
+                if (user != null) {
                     nm = user.getUsername();
                     mail = user.getEmail();
-                    utype=user.get("Type").toString();
+                    utype = user.get("Type").toString();
                     Intent i = new Intent(Studentpoll.this, Profile.class);
-                    Bundle detail=new Bundle();
-                    detail.putString("uname",nm);
+                    Bundle detail = new Bundle();
+                    detail.putString("uname", nm);
                     detail.putString("mail", mail);
-                    detail.putString("utype",utype);
+                    detail.putString("utype", utype);
                     i.putExtras(detail);
                     startActivity(i);
 //                    Toast.makeText(Admin.this, "Email :"+mail, Toast.LENGTH_SHORT).show();
                     Log.i("Current User :--", "user :" + nm);
-                }else {
+                } else {
                     Log.i("Current User :--", "user null");
                     Toast.makeText(Studentpoll.this, "Profile isn't initialized", Toast.LENGTH_SHORT).show();
                 }
@@ -121,17 +122,18 @@ public class Studentpoll extends AppCompatActivity implements AdapterView.OnItem
                 }
                 return true;
             case R.id.About:
-                Intent t=new Intent(this, About.class);
+                Intent t = new Intent(this, About.class);
                 startActivity(t);
-                Toast.makeText(getApplicationContext(),"About Selected", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "About Selected", Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
     private void refreshStudList() {
         adapter.clear();
-        if(adapter.isEmpty()) {
+        if (adapter.isEmpty()) {
             /*ParseQuery<ParseUser> studuser = ParseUser.getQuery();
             studuser.whereEqualTo("Type","Student");
             studuser.findInBackground(new FindCallback<ParseUser>() {
@@ -149,16 +151,17 @@ public class Studentpoll extends AppCompatActivity implements AdapterView.OnItem
                     }
                 }
             });*/
-        }else {
+        } else {
             Toast.makeText(Studentpoll.this, "Adapter is Not Cleared", Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String tempstud=parent.getItemAtPosition(position).toString();
-        Intent i=new Intent(this,Admin_stud_detail.class);
-        i.putExtra("name",tempstud);
+        String tempstud = parent.getItemAtPosition(position).toString();
+        Intent i = new Intent(this, Admin_stud_detail.class);
+        i.putExtra("name", tempstud);
         startActivity(i);
-        Toast.makeText(this, "Selected : "+tempstud, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Selected : " + tempstud, Toast.LENGTH_SHORT).show();
     }
 }
