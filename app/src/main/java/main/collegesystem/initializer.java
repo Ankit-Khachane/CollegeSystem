@@ -24,6 +24,7 @@ public class initializer extends Application {
                 .server("https://parseapi.back4app.com/").build()
         );
 
+
         Log.i("Initialization :", "App initialization executed");
         ParseUser.enableRevocableSessionInBackground();
 

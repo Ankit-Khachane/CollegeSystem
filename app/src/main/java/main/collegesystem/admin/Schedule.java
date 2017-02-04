@@ -97,6 +97,7 @@ public class Schedule extends AppCompatActivity implements AdapterView.OnItemSel
         schedlist.clear();
         if (schedlist.isEmpty()) {
             ParseQuery<ParseObject> psched = ParseQuery.getQuery("schedule");
+            psched.orderByAscending("SEQUENCE");
             psched.findInBackground(new FindCallback<ParseObject>() {
                 @Override
                 public void done(List<ParseObject> list, ParseException e) {

@@ -15,8 +15,8 @@ public class Receiver extends ParsePushBroadcastReceiver {
     @Override
     protected void onPushReceive(Context context, Intent intent) {
         super.onPushReceive(context, intent);
-        Bundle extrasdata = intent.getExtras();
-        Log.i("onReciver Block : ", " onPushReceive: " + extrasdata.getString("com.parse.Data"));
+        Bundle extra_data = intent.getExtras();
+        Log.i("onReciver Block : ", " onPushReceive: " + extra_data.getString("com.parse.Data") + intent.getAction().toString());
     }
 
     @Override
@@ -26,10 +26,9 @@ public class Receiver extends ParsePushBroadcastReceiver {
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Bundle extras = intent.getExtras();
         if (extras != null) {
-            String jsonData = extras.getString("com.parse.Data");
             try {
-                JSONObject job = new JSONObject(jsonData);
-                String uritemp = job.getString("uri");
+                JSONObject job = new JSONObject(intent.getExtras().getString("com.parse.Data"));
+                String uritemp = job.getString("alert");
                 Log.i("push data :++ ", uritemp);
                 if (uritemp.equals("noticestud")) {
                     Toast.makeText(context, "" + uritemp, Toast.LENGTH_SHORT).show();
@@ -37,7 +36,6 @@ public class Receiver extends ParsePushBroadcastReceiver {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Log.d("Notify Data :+++", jsonData);
             context.startActivity(i);
         }
     }
