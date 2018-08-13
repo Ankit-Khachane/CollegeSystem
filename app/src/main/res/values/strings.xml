@@ -6,8 +6,8 @@
     <string name="title_activity_splash">Splash</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="parse_application_id">pmR0WTHAIAskfpLwTpYWfJ2P2NELHPiwTcuFidv5</string>
-    <string name="parse_client_key">nR8dSJ8vrZPk8GpffTOgUSb4HDcUfaJvqG3sTb5n</string>
+    <string name="parse_application_id"></string>
+    <string name="parse_client_key"></string>
     <string name="title_activity_admin">Administrator</string>
     <string name="title_activity_staff">Staff</string>
     <string name="title_activity_student">Student</string>
